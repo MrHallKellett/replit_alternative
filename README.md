@@ -1,6 +1,6 @@
 # replit_alternative
 
-Some tools to help with replit's announcement that they are deprecating their Teams for Edu service.
+Some tools to help deal with replit's announcement that they are deprecating their Teams for Edu service.
 
 ## scrape_io_tests.py
 
