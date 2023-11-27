@@ -10,5 +10,9 @@ A script that automates the process of exporting I/O tests from assignments (as 
 
 ## io_test_runner.py
 
-A work in progress - run replit I/O tests locally using `unitest.mock.patch`.
+Run replit I/O tests locally using `unittest.mock.patch`.
+
+![Demo of I/O test running](replit_io_test_runner.gif)
+
+
 
