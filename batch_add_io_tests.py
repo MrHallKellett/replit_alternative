@@ -8,9 +8,9 @@ from selenium.webdriver.common.by import By
 import json
 
 def add_tests(driver):
-    '''Create a directory corresponding with the assignment (if one doesn't already exist)
-    Iterates through each I/O test and copies the test name, list of inputs and expected outputs
-    Dumps these into an .io file in the assignment directory'''
+    '''Iterate through each I/O test found in the local test folder
+    create a new replit I/O test for each file, adding the test name,
+    inputs and outputs data from each file.'''
 
     driver.switch_to.window(driver.window_handles[-1])
 
