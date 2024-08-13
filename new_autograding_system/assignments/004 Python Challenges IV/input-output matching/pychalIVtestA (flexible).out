@@ -1,0 +1,69 @@
+Enter username: 
+Enter password: 
+INCORRECT CREDENTIALS.
+Enter username: 
+Enter password: 
+INCORRECT CREDENTIALS.
+Enter username: 
+Enter password: 
+INCORRECT CREDENTIALS.
+Enter username: 
+Enter password: 
+INCORRECT CREDENTIALS.
+Enter username: 
+Enter password: 
+INCORRECT CREDENTIALS.
+Enter username: 
+Enter password: 
+CORRECT CREDENTIALS.
+Welcome to the system.
+Have you had enough?
+Have you had enough?
+Have you had enough?
+Have you had enough?
+Have you had enough?
+You've had enough.
+Enter number: 
+100
+46
+FINISHED
+Enter password: 
+Enter password again: 
+Password match not found.
+You have 3 attempts remaining.
+Enter password: 
+Enter password again: 
+Password match not found.
+You have 2 attempts remaining.
+Enter password: 
+Enter password again: 
+Password match not found.
+You have 1 attempt remaining.
+Enter password: 
+Enter password again: 
+ACCOUNT LOCKED
+You have 10 guesses remaining.
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+You have 7 guesses remaining.
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+You have 4 guesses remaining.
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+What's my magic number? 
+HIGHER!
+You have 1 guess remaining.
+What's my magic number?
+HIGHER!
+You lose, my magic number was: 66.

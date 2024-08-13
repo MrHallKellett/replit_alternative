@@ -1,0 +1,74 @@
+Sports Recorder
+
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+
+Your sports were:
+['football', 'tennis', 'badminton', 'table tennis', 'judo']
+
+
+My Zoo
+
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+That's one of mine!
+
+Name Positions
+
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+MIK was found at number 3
+
+Length of Friends
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+OK - stopping. The names you entered had these lengths:
+[5, 3, 6, 8]
+
+Word Analysis Table
+
+How many words to analyse?
+
+OK - I will analyse 7 words.
+Enter word 1: 
+Enter word 2: 
+Enter word 3: 
+Enter word 4: 
+Enter word 5: 
+Enter word 6: 
+Enter word 7: 
+
+WORD ANALYSIS
+
+WORD         LENGTH       VOWELS       REPETITIONS  
+banana       6            3            2            
+chicken      7            2            1            
+frog         4            1            0            
+lemon        5            2            0            
+elephant     8            3            1            
+dinosaur     8            4            0            
+unbelievable 12           6            3 

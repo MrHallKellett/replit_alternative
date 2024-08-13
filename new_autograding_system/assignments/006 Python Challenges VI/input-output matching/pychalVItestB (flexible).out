@@ -1,0 +1,75 @@
+Sports Recorder
+
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+
+Your sports were:
+['golf', 'golf', 'golfy', 'golf', 'golf']
+
+My Zoo
+
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+That's one of mine!
+
+Name Positions
+
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+Please enter between 1 and 10 only.
+What number?
+
+BAZ was found at number 1
+
+Length of Friends
+
+What name?
+
+OK - stopping. The names you entered had these lengths:
+[]
+
+Word Analysis Table
+
+How many words to analyse?
+
+OK - I will analyse 3 words.
+Enter word 1: 
+Enter word 2: 
+Enter word 3: 
+
+WORD ANALYSIS
+
+WORD        LENGTH      VOWELS      REPETITIONS 
+one         3           2           0           
+two         3           1           0           
+three       5           2           1   

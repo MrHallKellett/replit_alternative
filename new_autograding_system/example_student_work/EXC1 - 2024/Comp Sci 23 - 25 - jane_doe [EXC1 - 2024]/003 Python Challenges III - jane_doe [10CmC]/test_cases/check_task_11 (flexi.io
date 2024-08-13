@@ -1,0 +1,2 @@
+{"inputs":["11","alvin","simon","theodore"],
+"outputs":["Enter task number e.g. 1, 2, 3 etc:","What's the name of your first child?","What's the name of your second child?","What's the name of your third child?","Your children: alvin, simon, theodore"]}

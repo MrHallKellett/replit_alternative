@@ -1,0 +1,16 @@
+aee
+bee
+zee
+195
+1555
+15905
+1950
+no
+no
+no
+no
+no
+There is no need to use the str() function here - the username is ALREADY a string. What are you checking for presence using the in operator? Remember that " " is a space, but "" is an empty string. Remember you can use the not operator to invert a condition, and make sure the username doesn't go over the maximum length (18).
+egg shaker
+3
+27

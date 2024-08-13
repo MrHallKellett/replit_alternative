@@ -1,0 +1,80 @@
+Sports Recorder
+
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+Enter sport: 
+
+Your sports were:
+['rugby', 'skiing', 'snowboarding', 'skateboarding', 'free running']
+
+My Zoo
+
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+Not one of mine.
+What animal?
+
+That's one of mine!
+
+Name Positions
+
+What number?
+
+CHUCK was found at number 6
+
+Length of Friends
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+What name?
+
+OK - stopping. The names you entered had these lengths:
+[3, 5, 4, 0, 18, 6]
+
+Word Analysis Table
+
+How many words to analyse?
+
+OK - I will analyse 10 words.
+Enter word 1: 
+Enter word 2: 
+Enter word 3: 
+Enter word 4: 
+Enter word 5: 
+Enter word 6: 
+Enter word 7: 
+Enter word 8: 
+Enter word 9: 
+Enter word 10: 
+
+WORD ANALYSIS
+
+WORD           LENGTH         VOWELS         REPETITIONS    
+lewisham       8              3              0              
+newham         6              2              0              
+southwark      9              3              0              
+greenwich      9              3              1              
+bromley        7              2              0              
+lambeth        7              2              0              
+tower hamlets  13             4              2              
+hackney        7              2              0              
+haringey       8              3              0              
+waltham forest 14             4              2   
