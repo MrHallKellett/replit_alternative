@@ -1,1 +1,11 @@
 # TODO
+
+1. Year 10 assignments in repo
+2. Example student work for testing x4
+3. Improve test feedback display
+4. Display error if filenames/test code altered - use hashes
+5. Distribute assignment to students + tests
+	- check for alterations - ignore uneccessary alterations (main.py)
+5. Aggregate all tests results from student and display
+6. Distribute test summary to students as PDF?
+
