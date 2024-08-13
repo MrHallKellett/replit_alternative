@@ -51,7 +51,7 @@ class TestRunner:
         for test in sorted(listdir(PATH)):
             if not test.endswith(".io"): continue
             try:
-                with open(PATH+test, encoding="unicode-escape") as f:
+                with open(PATH+test, encoding="utf-8") as f:
                     tests[test] = loads(f.read())
             except Exception as e:
                 print_red(f"Skipping {test} as : {e}")
@@ -114,7 +114,11 @@ class TestRunner:
         print_red(test_stats[1], "tests failed!")
 
 
-if __name__ == "__main__":
+def main():
     TestRunner()
     print()
     input("Press any key to quit")
+
+
+if __name__ == "__main__":
+    main()
