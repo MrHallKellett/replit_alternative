@@ -52,4 +52,3 @@ if __name__ == "__main__":
 
 # * meet_and_greet() is a special type of subroutine called a FUNCTION. we will study these in more detail soon!
 # ** the value from the meet_and_greet() function is returned and then passed into the name_length() procedure.
-
