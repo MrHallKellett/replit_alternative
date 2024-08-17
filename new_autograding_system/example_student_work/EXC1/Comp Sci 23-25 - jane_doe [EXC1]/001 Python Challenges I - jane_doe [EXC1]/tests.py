@@ -1,4 +1,4 @@
-from os import listdir
+from os import listdir, path
 from json import loads
 from unittest.mock import patch
 from sys import stdout
@@ -7,8 +7,7 @@ from time import sleep
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
-PATH = "test_cases/"
-
+PATH = path.join(path.dirname(path.realpath(__file__)), "test_cases")
 
 def print_in_colour(x, end, sep, colour):
     set_colour(colour)
@@ -50,8 +49,9 @@ class TestRunner:
         tests = {}
         for test in sorted(listdir(PATH)):
             if not test.endswith(".io"): continue
+            this_test_path = path.join(PATH, test)
             try:
-                with open(PATH+test, encoding="unicode-escape") as f:
+                with open(this_test_path, encoding="unicode-escape") as f:
                     tests[test] = loads(f.read())
             except Exception as e:
                 print_red(f"Skipping {test} as : {e}")

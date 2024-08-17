@@ -14,6 +14,7 @@ def hello_newline_world():
 
 def meet_and_greet():
 	"""complete exercise 3 - Meet and Greet - here"""
+	name = ""
 	# your code here
 	return name # leave this at the end!
 

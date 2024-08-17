@@ -5,15 +5,19 @@ in the task instructions (see 'instructions.md')
 
 Test your code by pressing Run >'''
 
+print("Running this one")
+
 
 def hello_world():
 	"""complete exercise 1 - Hello World - here"""
+	print("Hello World")
 
 def hello_newline_world():
 	"""complete exercise 2 - Hello [newline] World - here"""
 
 def meet_and_greet():
 	"""complete exercise 3 - Meet and Greet - here"""
+	name = None
 	# your code here
 	return name # leave this at the end!
 
@@ -31,9 +35,9 @@ def name_repeater():
 	
 
 
+print(__name__)
 
-
-if __name__ == "__main__":
+if __name__ in ["__main__", "main"]:
 	# this instructs the program to execute each
 	# of the subroutines, one after the other.
 	# if you don't want them ALL to run, add a #

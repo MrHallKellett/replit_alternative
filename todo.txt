@@ -2,11 +2,15 @@
 
 1. Year 10 assignments in repo  	X
 2. Example student work for testing x4  X
-3. Distribute assignment to students + tests
-	- check for alterations - ignore uneccessary alterations (main.py)
-4. Improve test feedback display  
+3. Distribute assignment to students + tests X
+	- check for alterations - ignore uneccessary alterations (main.py) X
+4. Improve test feedback display  X
 5. Display error if filenames/test code altered - use hashes
 6. Aggregate all tests results from student and display
 7. Distribute test summary to students as PDF?
 
 watch out for non-unicode chars in test data.
+
+8. all tests should be ordered
+9. all tests can have ignore_ws flag if needed...
+

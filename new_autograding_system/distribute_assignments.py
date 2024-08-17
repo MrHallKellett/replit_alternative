@@ -10,10 +10,10 @@ IGNORE = """input-output matching
 solutions""".splitlines()
 BACK_UP = True
 
-def choose_assignments(options):
+def choose_assignments(options: list[str]) -> list[int]:
     chosen = options
     all_ass = input("Redistribute all assignments? Enter any key: ")
-    if not  len(all_ass):
+    if not len(all_ass):
         chosen = input("OK. Enter comma separated list of assignment numbers: ")
         
         for choice in chosen.split(","):
@@ -67,7 +67,7 @@ def get_students() -> list[str]:
 
 ###############################
 
-def explore_assignment_directory(ass_path, stu_path):
+def explore_assignment_directory(ass_path: str, stu_path: str):
 
     for fn in listdir(ass_path):
         if fn in IGNORE:    continue
@@ -82,7 +82,23 @@ def explore_assignment_directory(ass_path, stu_path):
 
 ###############################
 
-def redistribute_file(ass_path, stu_path, fn):
+def create_backup(old_file):
+    stamp = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")                    
+    chunks = path.split(old_file)
+    
+    backup = path.join(*chunks[:1])
+    backup_dir = path.join(backup, "backup")
+    if not path.exists(backup_dir):
+        mkdir(backup_dir)
+        hide_file(backup_dir)
+                       
+    backup = path.join(backup, "backup", f"{stamp}_{chunks[-1]}")
+    copy(old_file, backup)
+    hide_file(backup)
+
+###############################
+
+def redistribute_file(ass_path: str, stu_path: str, fn: str):
 
     old_file = path.join(stu_path, fn)
     new_file = path.join(ass_path, fn)
@@ -95,19 +111,8 @@ def redistribute_file(ass_path, stu_path, fn):
             if old_file.endswith(".py"):
                 check = bool(input(f"Replace {old_file} - are you sure? "))
                 if check:
-                    stamp = datetime.now().strftime("%Y.%m.%d.%H.%M.%S")
+                    create_backup(old_file)
                     
-                    chunks = path.split(old_file)
-                    
-                    backup = path.join(*chunks[:1])
-                    backup_dir = path.join(backup, "backup")
-                    if not path.exists(backup_dir):
-                        mkdir(backup_dir)
-                        hide_file(backup_dir)
-                                       
-                    backup = path.join(backup, "backup", f"{stamp}_{chunks[-1]}")
-                    copy(old_file, backup)
-                    hide_file(backup)
                     
     else:
         print("File not found, writing new file")
@@ -134,9 +139,10 @@ def distribute(ass_paths: list[str], students: dict):
                 new_ass_path = path.join(*path.split(assignment_path)[1:]) + suffix
                 this_students_assignment = path.join(student_path, new_ass_path)
 
-###############################
+
                 explore_assignment_directory(assignment_path, this_students_assignment)
-                    
+
+###############################                    
                   
 
 if __name__ == "__main__":
