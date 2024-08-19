@@ -1,15 +1,10 @@
 
 def sports_recorder():
   ## Complete Exercise 1 - Sports Recorder - here
-  sport_chosen = []
-  for sport_number in range(1,6):
-    sport = input("Enter sport: ")
-    sport_chosen.append(sport)
-  
-  else:
-    print("Your sports were: ", sport_chosen)
-    
-  pass
+  x = []
+  for i in range(5):
+    x.append(input("Enter sport: "))
+  print("Your sports were:", x)
 
 def my_zoo():
   ## Complete Exercise 2 - My Zoo - here

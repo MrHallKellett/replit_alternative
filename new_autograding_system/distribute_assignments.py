@@ -7,21 +7,24 @@ from shutil import copy
 ASS_PATH = "assignments"
 STU_WORK_PATH = "example_student_work"
 IGNORE = """input-output matching
-solutions""".splitlines()
+solutions
+tests.py""".splitlines()
 BACK_UP = True
 
 def choose_assignments(options: list[str]) -> list[int]:
     chosen = options
+
     all_ass = input("Redistribute all assignments? Enter any key: ")
     if not len(all_ass):
         chosen = input("OK. Enter comma separated list of assignment numbers: ")
         
         for choice in chosen.split(","):
-            if not choice.isdigit() or int(choice) not in options:
+            if not choice.isdigit() or int(choice)-1 not in options:
                 print(choice.center(10), "<- invalid choice")
                 return None
 
-        chosen = [int(choice)-1 for choice in chosen.split(",")]
+    chosen = [int(choice)-1 for choice in chosen.split(",")]
+
 
     return chosen
 
@@ -73,12 +76,20 @@ def explore_assignment_directory(ass_path: str, stu_path: str):
         if fn in IGNORE:    continue
         
         potential_path = path.join(ass_path, fn)
+        print("Check potential path", potential_path)
         if path.isdir(potential_path):
             ass_path = potential_path
             stu_path = path.join(stu_path, fn)
+            create_dir(stu_path)
             explore_assignment_directory(ass_path, stu_path)
         else:
             redistribute_file(ass_path, stu_path, fn)
+
+###############################
+
+def create_dir(this_dir):
+    if not path.exists(this_dir):
+        mkdir(this_dir)
 
 ###############################
 
@@ -88,9 +99,8 @@ def create_backup(old_file):
     
     backup = path.join(*chunks[:1])
     backup_dir = path.join(backup, "backup")
-    if not path.exists(backup_dir):
-        mkdir(backup_dir)
-        hide_file(backup_dir)
+    create_dir(backup_dir)
+    hide_file(backup_dir)
                        
     backup = path.join(backup, "backup", f"{stamp}_{chunks[-1]}")
     copy(old_file, backup)
@@ -107,19 +117,14 @@ def redistribute_file(ass_path: str, stu_path: str, fn: str):
     print("Checking if", old_file, "exists")
     
     if path.exists(old_file):        
-        if path.getmtime(new_file) > path.getmtime(old_file):
-            if old_file.endswith(".py"):
-                check = bool(input(f"Replace {old_file} - are you sure? "))
-                if check:
-                    create_backup(old_file)
-                    
-                    
+        if path.getmtime(new_file) > path.getmtime(old_file) or old_file.endswith(".py"):
+            check = bool(input(f"Replace {old_file} - are you sure? "))
+            if check:
+                create_backup(old_file)         
     else:
         print("File not found, writing new file")
     if check:        
         print("Copied the file.")
-        
-        
         copy(new_file, old_file)
         
 
@@ -138,9 +143,14 @@ def distribute(ass_paths: list[str], students: dict):
                 suffix = f" - {student_name} [{class_group}]"
                 new_ass_path = path.join(*path.split(assignment_path)[1:]) + suffix
                 this_students_assignment = path.join(student_path, new_ass_path)
-
-
+                create_dir(this_students_assignment)
+                
                 explore_assignment_directory(assignment_path, this_students_assignment)
+
+                # if this file has tests, distribute the test runner and test hash
+                if path.exists(path.join(this_students_assignment, "test_cases")):
+                    copy("tests.py", path.join(this_students_assignment, "tests.py"))
+                    copy("test_hash.py", path.join(this_students_assignment, "test_cases", "test_hash.py"))
 
 ###############################                    
                   

@@ -15,4 +15,4 @@ watch out for non-unicode chars in test data.
 9. all tests can have ignore_ws flag if needed...
 
 10. obfuscate tests.py using unicode encoding (lower priority)
-11. obfuscate test_cases by storing as bytes
+11. obfuscate test_cases and test_hash by storing as bytes
