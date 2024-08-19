@@ -1,15 +1,9 @@
 from os import getcwd, listdir, path, mkdir
 from re import match, search
 from datetime import datetime
-from helpers import hide_file
+from helpers import get_students, hide_file
 from shutil import copy
-
-ASS_PATH = "assignments"
-STU_WORK_PATH = "example_student_work"
-IGNORE = """input-output matching
-solutions
-tests.py""".splitlines()
-BACK_UP = True
+from config import *
 
 def choose_assignments(options: list[str]) -> list[int]:
     chosen = options
@@ -53,20 +47,7 @@ def get_assignments() -> list[str]:
     # return paths
     return [path.join(ASS_PATH, options[i]) for i in chosen]
 
-###############################
 
-def get_students() -> list[str]:
-    students = {}
-    # iterate student work folder
-    for class_group in sorted(listdir(STU_WORK_PATH)):
-        print("Found class", class_group)
-        this_path = path.join(STU_WORK_PATH, class_group)
-        students[class_group] = []
-        for student in sorted(listdir(this_path)):
-            name = " ".join(student.split(" ")[4:][:-1])
-            print("\tFound student", name)
-            students[class_group].append((name, path.join(STU_WORK_PATH, class_group, student)))
-    return students
 
 ###############################
 
@@ -135,7 +116,7 @@ def distribute(ass_paths: list[str], students: dict):
     # go through each class
     for class_group, student_data in students.items():
         # go through each student
-        for student_name, student_path in student_data:
+        for student_name, student_path, _ in student_data:
             # go through each assignment
             for assignment_path in ass_paths:
                 ass_found = False
@@ -149,8 +130,9 @@ def distribute(ass_paths: list[str], students: dict):
 
                 # if this file has tests, distribute the test runner and test hash
                 if path.exists(path.join(this_students_assignment, "test_cases")):
-                    copy("tests.py", path.join(this_students_assignment, "tests.py"))
-                    copy("test_hash.py", path.join(this_students_assignment, "test_cases", "test_hash.py"))
+                    copy(path.join(getcwd(), "tests.py"), path.join(this_students_assignment, "tests.py"))
+                    copy(path.join(getcwd(), "test_hash.py"), path.join(this_students_assignment, "test_cases", "test_hash.py"))
+                    print("Redistributed unit tests")
 
 ###############################                    
                   

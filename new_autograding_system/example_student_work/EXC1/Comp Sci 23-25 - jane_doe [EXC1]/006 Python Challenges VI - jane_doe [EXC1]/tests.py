@@ -5,7 +5,10 @@ from unittest.mock import patch
 from sys import stdout
 from importlib import reload
 from time import sleep
-from test_cases.test_hash import EXP_HASH
+try:
+    from test_cases.test_hash import EXP_HASH
+except:
+    from test_hash import EXP_HASH
 from hashlib import sha256
 INDENT = "  "
 INDENT_2 = INDENT * 2
@@ -209,8 +212,7 @@ class TestRunner:
 
         self.stats = test_stats
 
-
-if __name__ == "__main__":
+def run_tests():
     this_test = TestRunner()
     print()
     exit_prompt = FINAL_MSG
@@ -222,3 +224,6 @@ if __name__ == "__main__":
         for line in hidden_feedback:
             print(line)
         input(FINAL_MSG)
+
+if __name__ == "__main__":
+    run_tests()
