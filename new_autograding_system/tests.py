@@ -5,23 +5,28 @@ from unittest.mock import patch
 from sys import stdout
 from importlib import reload
 from time import sleep
-
+from test_cases.test_hash import EXP_HASH
+from hashlib import sha256
 INDENT = "  "
 INDENT_2 = INDENT * 2
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 PATH = path.join(path.dirname(path.realpath(__file__)), "test_cases")
-
+ENC = "unicode-escape"
+FINAL_MSG = "Press any key to quit\n"
 display = True
 hidden_feedback = [""]
+tamper = False
+ 
+with open(__file__, encoding=ENC) as f:
+    if sha256(f.read().encode(ENC)).hexdigest() != EXP_HASH:
+        tamper = True
 
-def print_if_logging(*x, end="\n", sep=" "):
-    
+def print_if_logging(*x, end="\n", sep=" "):    
     to_print = " ".join(str(i) for i in x)
 
     if display:
-        stdout.write(to_print + end)
-        
+        stdout.write(to_print + end)        
     else:
         hidden_feedback[-1] += to_print
         if end == "\n":
@@ -98,7 +103,7 @@ class TestRunner:
             if not test.endswith(".io"): continue
             this_test_path = path.join(PATH, test)
             try:
-                with open(this_test_path, encoding="unicode-escape") as f:
+                with open(this_test_path, encoding=ENC) as f:
                     tests[test] = loads(f.read())
             except Exception as e:
                 print_red(f"Skipping {test} as : {e}")
@@ -121,6 +126,7 @@ class TestRunner:
 		
 
         for test_name, test_data in tests.items():
+            fail = False
             self.input_queue = list(test_data["inputs"])
             self.printed = "INPUT/OUTPUT LOG:\n"
             s = f"RUNNING TEST: {test_name}..."
@@ -167,9 +173,12 @@ class TestRunner:
                     
                         line_test = line_test.replace(item_to_ignore, "")
 
-                if line_test in print_test:
+                if tamper:
+                    fail = True
+                    print_red(__file__, "has been modified.")
+                elif line_test in print_test:
                     print_green("FOUND")      
-                    print_test = print_test.replace(line, "", 1)                              
+                    print_test = print_test.replace(line, "", 1)                
                 else:                                
                     print_red("NOT FOUND\n")
                     print_red(INDENT+"Could not find... ")                                
@@ -177,23 +186,17 @@ class TestRunner:
                     print_red(INDENT+"in ...")  
                     for line in self.printed.splitlines():                      
                         print_standard(INDENT_2+line)
-                    test_stats[1] += 1
-                    
+                                   
                     display_inputs(test_data["inputs"])
+                    fail = True
 
                     
-                    print_red("\n❌ TEST FAILED")
-                    
-                    
-                    display = False
-
-                    
-                    
-            if display:
-                
-                print_green("\n✅ TEST PASSED")
-                
-                
+            if fail:
+                print_red("\n❌ TEST FAILED")
+                test_stats[1] += 1 
+                display = False
+            else:                
+                print_green("\n✅ TEST PASSED")               
                 test_stats[0] += 1
         
         display = True
@@ -208,7 +211,7 @@ class TestRunner:
 if __name__ == "__main__":
     this_test = TestRunner()
     print()
-    exit_prompt = "Press any key to quit\n"
+    exit_prompt = FINAL_MSG
     if this_test.stats[1] > 0:
         exit_prompt = "Press A to view all test results, press any other key to quit\n"
 
@@ -216,3 +219,4 @@ if __name__ == "__main__":
     if x.lower().strip() == "a":
         for line in hidden_feedback:
             print(line)
+        input(FINAL_MSG)
