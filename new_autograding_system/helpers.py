@@ -2,6 +2,8 @@ from os import listdir, path, getcwd
 from config import *
 import platform
 import ctypes
+from importlib.util import spec_from_file_location, module_from_spec
+from sys import modules
 
 def hide_file(file_path):
     system_name = platform.system()
@@ -30,9 +32,17 @@ def hide_file(file_path):
             print(f"Failed to hide file on {system_name}: {e}")
 
 
-####################
+###############################
 
-
+def load_module_from_path(path):
+    def mod_name(name):
+        return "".join(char for char in name if char.isalpha())
+    module_name = mod_name(path)
+    spec = spec_from_file_location(module_name, path)
+    module = module_from_spec(spec)
+    modules[module_name] = module
+    spec.loader.exec_module(module)
+    return module
 
 ###############################
 

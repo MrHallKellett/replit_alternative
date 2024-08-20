@@ -1,10 +1,6 @@
 
 def sports_recorder():
-  sport = []
-  for sport_no in range(5):
-    sport_2 = input("Enter sport:\n")
-    sport.append(sport_2)
-  print(f"Your sports were: {sport}")
+
   pass
 
 def my_zoo():

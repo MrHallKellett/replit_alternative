@@ -116,7 +116,7 @@ def distribute(ass_paths: list[str], students: dict):
     # go through each class
     for class_group, student_data in students.items():
         # go through each student
-        for student_name, student_path, _ in student_data:
+        for student_name, student_path in student_data:
             # go through each assignment
             for assignment_path in ass_paths:
                 ass_found = False

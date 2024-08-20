@@ -2,14 +2,16 @@ from os import listdir, path
 from unicodedata import east_asian_width
 from json import loads
 from unittest.mock import patch
-from sys import stdout
+from sys import stdout, modules
 from importlib import reload
 from time import sleep
+from importlib.util import spec_from_file_location, module_from_spec
 try:
     from test_cases.test_hash import EXP_HASH
 except:
     from test_hash import EXP_HASH
 from hashlib import sha256
+
 INDENT = "  "
 INDENT_2 = INDENT * 2
 RED = (255, 0, 0)
@@ -21,9 +23,19 @@ display = True
 hidden_feedback = [""]
 tamper = False
  
-with open(__file__, encoding=ENC) as f:
+with open(path.basename(__file__) , encoding=ENC) as f:
     if sha256(f.read().encode(ENC)).hexdigest() != EXP_HASH:
         tamper = True
+
+def load_module_from_path(path):
+    def mod_name(name):
+        return "".join(char for char in name if char.isalpha())
+    module_name = mod_name(path)
+    spec = spec_from_file_location(module_name, path)
+    module = module_from_spec(spec)
+    modules[module_name] = module
+    
+    return module, spec
 
 def print_if_logging(*x, end="\n", sep=" "):    
     to_print = " ".join(str(i) for i in x)
@@ -113,8 +125,9 @@ class TestRunner:
                 continue
         return tests
 
-    def __init__(self):
+    def __init__(self, silent=True):
         global display
+        display = not silent
         result = ""
         test_stats = [0, 0]
         first = True
@@ -140,10 +153,12 @@ class TestRunner:
                 with patch("builtins.input", side_effect=self.mock_input):
                     with patch("builtins.print", side_effect=self.log_print):
                         if first:
-                            import main
+                            this_main = path.join(path.dirname(path.abspath(__file__)), "main.py")
+                            main, spec = load_module_from_path(this_main)
                             first = False
-                        else:       
-                            reload(main)
+                        else:
+                            spec.loader.exec_module(main)
+                            #reload(main)
 
             except Exception as e:                
                 print_standard("could not complete test suite due to error:")
@@ -212,8 +227,8 @@ class TestRunner:
 
         self.stats = test_stats
 
-def run_tests():
-    this_test = TestRunner()
+def run_tests(silent=False):
+    this_test = TestRunner(silent)
     print()
     exit_prompt = FINAL_MSG
     if this_test.stats[1] > 0:

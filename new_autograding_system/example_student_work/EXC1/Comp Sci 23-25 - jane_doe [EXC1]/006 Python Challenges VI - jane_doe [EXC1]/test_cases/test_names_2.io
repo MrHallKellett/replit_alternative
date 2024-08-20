@@ -1,2 +1,0 @@
-{"inputs":["3","0","2"],
-"outputs":["Enter 1 to test SPORTS RECORDER","Enter 2 to test MY ZOO","Enter 3 to test NAME POSITIONS","Enter 4 to test LENGTHS OF FRIENDS","Enter 5 to test WORD ANALYSIS TABLE","What number?","Please enter between 1 and 10 only.","What number?","BETH was found at number 2"]}

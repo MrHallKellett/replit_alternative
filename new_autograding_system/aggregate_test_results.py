@@ -1,11 +1,21 @@
-from helpers import get_students
+from helpers import get_students, load_module_from_path
 from os import path
 from pathlib import Path
-from importlib import import_module
-from importlib.util import spec_from_file_location, module_from_spec
-from sys import modules
+from sys import modules, stdout
+from unittest.mock import patch
+from re import findall
 
 GRADED_ASSIGNMENTS = """006 Python Challenges VI""".splitlines()
+
+log = ""
+result_data = {}
+
+
+
+def record_output(*s):
+    global log
+    for item in s:
+        log += item
 
 
 
@@ -20,23 +30,27 @@ if __name__ == "__main__":
             print("Assessing", student_name)
             suffix = f" - {student_name} [{class_group}]"
             for assignment in GRADED_ASSIGNMENTS:
+                if assignment not in result_data:
+                    result_data[assignment] = []
                 print("Assignment:", assignment)
+                
                 stu_ass_path = path.join(student_path, assignment+suffix, "tests.py")
-
-
-                # Create a module name replacing spaces and special characters
-                module_name = 'module_with_spaces'
-
-
-                print(r"C:\Users\mrhallbkk\GitHub\replit_alternative\new_autograding_system\example_student_work\EXC1\Comp Sci 23-25 - jane_doe [EXC1]\006 Python Challenges VI - jane_doe [EXC1]")
-                # Load the module
-                spec = spec_from_file_location(module_name, stu_ass_path)
-                module = module_from_spec(spec)
-                modules[module_name] = module
-                spec.loader.exec_module(module)
-                module.run_tests()
-
                 
+                module = load_module_from_path(stu_ass_path)
                 
+                with patch("builtins.input", side_effect=lambda x: ""):
+                    with patch("sys.stdout.write", side_effect=record_output):
+                        module.run_tests(silent=False)
+                print(log)
+                input()
+                passed = int(findall(r'(\d*)\stests\spassed', log)[-1])
+                failed = int(findall(r'(\d*)\stests\sfailed', log)[-1])
+                  
+                this_result = {"student":student_name, "class":class_group, "failed":failed, "passed":passed}
+                result_data[assignment].append(this_result)
+
+
+
+print(result_data)
 
             
