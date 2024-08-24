@@ -20,4 +20,4 @@ Iterate through student test case files and aggregate results.
 
 Generate progress report in HTML format.
 
-![Test Result Report](assets/test_result_report.gif)
+![Test Result Report](assets/test_result_report.GIF)
