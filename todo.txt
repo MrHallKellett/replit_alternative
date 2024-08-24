@@ -10,9 +10,13 @@
 7. Distribute test summary to students as PDF?
 
 watch out for non-unicode chars in test data.
+avoid strain on sync client - only rewrite files if diff
+
 
 8. all tests should be ordered
 9. all tests can have ignore_ws flag if needed...
+
+
 
 10. obfuscate tests.py using unicode encoding (lower priority)
 11. obfuscate test_cases and test_hash by storing as bytes
