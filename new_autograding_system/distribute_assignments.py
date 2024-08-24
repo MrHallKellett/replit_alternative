@@ -1,12 +1,18 @@
-from os import getcwd, listdir, path, mkdir
+from os import getcwd, path, mkdir
 from re import match, search
 from datetime import datetime
 from helpers import get_students, hide_file
 from shutil import copy
 from config import *
+from os import listdir
+
+OVERWRITE_PY = False
+
+
 
 def choose_assignments(options: list[str]) -> list[int]:
-    chosen = options
+    chosen = ",".join(str(i) for i in options)
+    
 
     all_ass = input("Redistribute all assignments? Enter any key: ")
     if not len(all_ass):
@@ -54,10 +60,10 @@ def get_assignments() -> list[str]:
 def explore_assignment_directory(ass_path: str, stu_path: str):
 
     for fn in listdir(ass_path):
-        if fn in IGNORE:    continue
+        if fn in IGNORE or not path.isdir(fn):    continue
         
         potential_path = path.join(ass_path, fn)
-        print("Check potential path", potential_path)
+        #print("Check potential path", potential_path)
         if path.isdir(potential_path):
             ass_path = potential_path
             stu_path = path.join(stu_path, fn)
@@ -95,17 +101,19 @@ def redistribute_file(ass_path: str, stu_path: str, fn: str):
     new_file = path.join(ass_path, fn)
 
     check = True
-    print("Checking if", old_file, "exists")
-    
-    if path.exists(old_file):        
-        if path.getmtime(new_file) > path.getmtime(old_file) or old_file.endswith(".py"):
-            check = bool(input(f"Replace {old_file} - are you sure? "))
+
+    if path.exists(old_file):
+        if not OVERWRITE_PY:
+            check = False
+        elif old_file.endswith(".py"):
+            check = bool(input(f"Replace .py file {old_file} - are you sure? "))
             if check:
-                create_backup(old_file)         
-    else:
-        print("File not found, writing new file")
+                create_backup(old_file)
+        if (path.getmtime(new_file) > path.getmtime(old_file):                        
+            create_backup(old_file)         
+
     if check:        
-        print("Copied the file.")
+        #print("Copied the file.")
         copy(new_file, old_file)
         
 
@@ -119,8 +127,9 @@ def distribute(ass_paths: list[str], students: dict):
         for student_name, student_path in student_data:
             # go through each assignment
             for assignment_path in ass_paths:
+                
                 ass_found = False
-                print("Processing", assignment_path)
+                
                 suffix = f" - {student_name} [{class_group}]"
                 new_ass_path = path.join(*path.split(assignment_path)[1:]) + suffix
                 this_students_assignment = path.join(student_path, new_ass_path)
@@ -130,9 +139,10 @@ def distribute(ass_paths: list[str], students: dict):
 
                 # if this file has tests, distribute the test runner and test hash
                 if path.exists(path.join(this_students_assignment, "test_cases")):
-                    copy(path.join(getcwd(), "tests.py"), path.join(this_students_assignment, "tests.py"))
+                    new_test_file = path.join(this_students_assignment, "tests.py")
+                    copy(path.join(getcwd(), "tests.py"), new_test_file)
                     copy(path.join(getcwd(), "test_hash.py"), path.join(this_students_assignment, "test_cases", "test_hash.py"))
-                    print("Redistributed unit tests")
+                    print("Redistributed unit tests for", new_test_file)
 
 ###############################                    
                   
@@ -140,5 +150,8 @@ def distribute(ass_paths: list[str], students: dict):
 if __name__ == "__main__":
 
     ass_paths = get_assignments()
+    print(ass_paths)
     students = get_students()
+    print(students)
+    input()
     distribute(ass_paths, students)

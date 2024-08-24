@@ -139,7 +139,8 @@ class TestRunner:
             for line in inputs:
                 print_standard(INDENT_2+line)
 
-		
+        this_main = path.join(path.dirname(path.abspath(__file__)), "main.py")
+        main, spec = load_module_from_path(this_main)		
 
         for test_name, test_data in tests.items():
             fail = False
@@ -148,18 +149,11 @@ class TestRunner:
             s = f"RUNNING TEST: {test_name}..."
             
             print_with_border(s)
-            
+
             try:
                 with patch("builtins.input", side_effect=self.mock_input):
                     with patch("builtins.print", side_effect=self.log_print):
-                        if first:
-                            this_main = path.join(path.dirname(path.abspath(__file__)), "main.py")
-                            main, spec = load_module_from_path(this_main)
-                            first = False
-                        else:
-                            spec.loader.exec_module(main)
-                            #reload(main)
-
+                        spec.loader.exec_module(main)
             except Exception as e:                
                 print_standard("could not complete test suite due to error:")
                 print_red(e)                
