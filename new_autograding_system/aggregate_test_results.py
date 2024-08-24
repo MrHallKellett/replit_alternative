@@ -4,6 +4,7 @@ from pathlib import Path
 from sys import modules, stdout
 from unittest.mock import patch
 from re import findall
+from db import Database
 
 GRADED_ASSIGNMENTS = """006 Python Challenges VI""".splitlines()
 
@@ -17,7 +18,7 @@ def record_output(*s):
     for item in s:
         log += item
 
-def get_results(students: dict) -> dict:ss
+def get_results(students: dict) -> dict:
     result_data = {}
     for class_group, student_data in students.items():
         # go through each student
@@ -37,22 +38,31 @@ def get_results(students: dict) -> dict:ss
                     with patch("sys.stdout.write", side_effect=record_output):
                         module.run_tests(silent=True)
                 print(log)
-                input()
                 passed = int(findall(r'(\d*)\stests\spassed', log)[-1])
                 failed = int(findall(r'(\d*)\stests\sfailed', log)[-1])
                   
                 this_result = {"student":student_name, "class":class_group, "failed":failed, "passed":passed}
                 result_data[assignment].append(this_result)
-                ss
+                
     return result_data
 
 def write_results(results):
+    all_q = ""
+    all_v = list()
     for assignment, data in results.items():
         for student in data:
-            s, a, p, f = student["student"], assignment, student["passed"], student["failed"]
-            q = """WITH data AS (SELECT assignment_id FROM assignment WHERE assigment_name=?, SELECT student_id FROM student WHERE student_name=?
-            INSERT INTO results VALUES (SELECT assignment_id, ?, ?, ?) ON CONFLICT DO UPDATE results SET passed=?, failed=? WHERE assignment_id=? AND student_id=?"
-            db.execute(q, (a, s, p, f, p, f, a, s))
+            s, a, p, f = student["student"], assignment.split()[0], student["passed"], student["failed"]
+            q = """INSERT INTO result
+VALUES (?, (SELECT student_id FROM student WHERE name = ?), ?, ?)
+ON CONFLICT DO UPDATE SET passed=?, failed=?;"""
+
+            v = (a, s, p, f, p, f)
+
+            with Database() as db:
+                print(q, v)
+                db.execute(q, v)
+
+
 
 if __name__ == "__main__":
 

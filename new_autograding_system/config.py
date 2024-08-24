@@ -4,3 +4,4 @@ IGNORE = """input-output matching
 solutions
 tests.py""".splitlines()
 BACK_UP = True
+DB_FILENAME = "test_results.db"

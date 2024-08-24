@@ -4,6 +4,7 @@ import platform
 import ctypes
 from importlib.util import spec_from_file_location, module_from_spec
 from sys import modules
+from db import Database
 
 def hide_file(file_path):
     system_name = platform.system()
@@ -58,3 +59,23 @@ def get_students() -> list[str]:
             print("\tFound student", name)
             students[class_group].append((name, path.join(STU_WORK_PATH, class_group, student)))
     return students
+
+###############################
+
+def add_assignments_to_db():
+    data = []
+    for fn in listdir("assignments"):
+        
+        if path.isdir(path.join(getcwd(), "assignments", fn)):
+            data.append((fn.split()[0], " ".join(fn.split()[1:])))
+
+
+    
+    q = """INSERT INTO assignment VALUES ("{}", "{}")"""
+    for id_, ass_name in data:
+        
+        print(q.format(id_, ass_name))
+
+
+if __name__ == "__main__":
+    add_assignments_to_db()
