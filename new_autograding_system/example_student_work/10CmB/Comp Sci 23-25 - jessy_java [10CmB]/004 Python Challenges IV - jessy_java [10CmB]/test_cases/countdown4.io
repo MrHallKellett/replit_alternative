@@ -1,0 +1,2 @@
+{"inputs":["3","9"],
+"outputs":["Enter 1 to test CREDENTIALS","Enter 2 to test ENOUGH","Enter 3 to test COUNTDOWN","Enter 4 to test CONFIRMATION ATTEMPTS","Enter 5 to test GUESS MY NUMBER","Enter number:","100","91","82","73","64","55","46","37","28","19","10","1","FINISHED"]}

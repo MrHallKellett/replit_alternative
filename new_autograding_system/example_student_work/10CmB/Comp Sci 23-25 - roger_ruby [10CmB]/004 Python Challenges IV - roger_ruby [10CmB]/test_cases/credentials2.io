@@ -1,0 +1,2 @@
+{"inputs":["1","TheresaMay124","abcdefg","TheresaMay123","abcdef"],
+"outputs":["Enter 1 to test CREDENTIALS","Enter 2 to test ENOUGH","Enter 3 to test COUNTDOWN","Enter 4 to test CONFIRMATION ATTEMPTS","Enter 5 to test GUESS MY NUMBER","Enter username:","Enter password:","INCORRECT CREDENTIALS.","Enter username:","Enter password:","CORRECT CREDENTIALS.","Welcome to the system."]}

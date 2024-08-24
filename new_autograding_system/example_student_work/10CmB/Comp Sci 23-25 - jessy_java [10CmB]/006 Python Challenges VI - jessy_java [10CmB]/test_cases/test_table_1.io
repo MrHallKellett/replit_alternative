@@ -1,0 +1,2 @@
+{"inputs":["5","3","cat","dog","pig"],
+"outputs":["Enter 1 to test SPORTS RECORDER","Enter 2 to test MY ZOO","Enter 3 to test NAME POSITIONS","Enter 4 to test LENGTHS OF FRIENDS","Enter 5 to test WORD ANALYSIS TABLE","How many words to analyse?","OK - I will analyse 3 words.","Enter word 1: ","Enter word 2: ","Enter word 3: ","WORD ANALYSIS TABLE","WORD LENGTH VOWELS REPETITIONS","cat  3      1      0","dog  3      1      0","pig  3      1      0"]}

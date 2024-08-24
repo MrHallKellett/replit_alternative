@@ -1,0 +1,2 @@
+{"inputs":["14","bob","singer","jamaica"],
+"outputs":["Enter task number e.g. 1, 2, 3 etc:","What's your name?","What do you do for a living?","Where abouts is that?","With a name like bob I'd expect you to work in jamaica!"]}

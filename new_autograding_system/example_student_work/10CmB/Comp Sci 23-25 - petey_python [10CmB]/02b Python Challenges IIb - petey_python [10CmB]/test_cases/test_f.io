@@ -1,0 +1,2 @@
+{"inputs":["1000000000","1000000000000000000","CURLY","807"],
+"outputs":["Age Rater","","How old are you then","Centenarian!","Over the hill!","A quarter century!","Old enough to drive!","First word!","","Even or Odd","","What's your number?","EVEN!","","Word Soup","","Say your word:","CUR","","Numberama","","ENTER YOUR NUMBERAMA:","GIANT IN THE MIDST!","HOLE IN ONE!"]}

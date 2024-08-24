@@ -1,0 +1,2 @@
+{"inputs":["Balthazar","1021","48","Steve","33","Jeremy","Corbyn","3"],
+"outputs":["Hello World","Hello","World","Hello, what's your name?","Hello Balthazar, it's nice to meet you.","Did you know you have 9 letters in your name?","Tell me a number:","And another:","I've added them together! The answer is: 1069","Hello, who are you?","How old are you?","OK, Steve, you are 33 years old.","Did you know that in 33 years' time you will be 66 years old?","What is your first name?","What is your last name?","How many times?","Jeremy Corbyn Jeremy Corbyn Jeremy Corbyn "]}

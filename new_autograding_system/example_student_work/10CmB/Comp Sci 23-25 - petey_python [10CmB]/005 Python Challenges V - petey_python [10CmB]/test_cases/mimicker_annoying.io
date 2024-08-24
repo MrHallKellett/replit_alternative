@@ -1,0 +1,2 @@
+{"inputs":["5","hi","yo","po","go","to","lo","stop it now this is getting silly"],
+"outputs":["Enter 1 to test CHEERLEADER","Enter 2 to test COUNTDOWN V2","Enter 3 to test SUM KINDA PROGRAM","Enter 4 to test TRIANGLE","Enter 5 to test MIMICKER","Enter 6 to test MY NAME, YOUR NAME","ENTER 7 to test SECRET CODE","Enter sentence:","hi","hi","Enter sentence:","yo","yo","Enter sentence:","po","po","Enter sentence:","go","go","Enter sentence:","to","to","Enter sentence:","lo","lo","Enter sentence:","OK."]}

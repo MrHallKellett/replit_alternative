@@ -1,4 +1,4 @@
-from os import listdir, path, getcwd
+from os import listdir, path, getcwd, rename
 from config import *
 import platform
 import ctypes
@@ -27,7 +27,7 @@ def hide_file(file_path):
         directory, filename = path.split(file_path)
         hidden_file_path = path.join(directory, f".{filename}")
         try:
-            os.rename(file_path, hidden_file_path)
+            rename(file_path, hidden_file_path)
             #print(f"File '{file_path}' has been hidden successfully on {system_name}.")
         except Exception as e:
             print(f"Failed to hide file on {system_name}: {e}")
@@ -51,10 +51,12 @@ def get_students() -> list[str]:
     students = {}
     # iterate student work folder
     for class_group in sorted(listdir(STU_WORK_PATH)):
+        if not path.isdir(path.join(STU_WORK_PATH, class_group)):   continue
         print("Found class", class_group)
         this_path = path.join(STU_WORK_PATH, class_group)
         students[class_group] = []
         for student in sorted(listdir(this_path)):
+            if not path.isdir(path.join(this_path, student)):   continue
             name = " ".join(student.split(" ")[4:][:-1])
             print("\tFound student", name)
             students[class_group].append((name, path.join(STU_WORK_PATH, class_group, student)))

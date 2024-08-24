@@ -1,0 +1,2 @@
+{"inputs":["1","999","BANAN","191"],
+"outputs":["Age Rater","","How old are you then","","Even or Odd","","What's your number?","ODD!","","Word Soup","","Say your word:","BAN","","Numberama","","ENTER YOUR NUMBERAMA:","GIANT IN THE MIDST!","CORNERED!"]}

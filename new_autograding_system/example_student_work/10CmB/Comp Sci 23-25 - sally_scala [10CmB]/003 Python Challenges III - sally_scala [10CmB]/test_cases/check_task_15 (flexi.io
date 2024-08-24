@@ -1,0 +1,2 @@
+{"inputs":["15","99"],
+"outputs":["Enter task number e.g. 1, 2, 3 etc:","What's your favourite number?","I can see that your favourite number...","is a positive number!","only has 2 digits!","is an odd number!"]}

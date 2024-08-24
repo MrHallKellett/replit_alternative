@@ -1,0 +1,2 @@
+{"inputs":["7","214","779","1000","2","14"],
+"outputs":["Enter task number e.g. 1, 2, 3 etc:","Enter an even number.","Correct!","Enter an even number.","Incorrect!","Enter an even number.","Correct!","Enter an even number.","Correct!","Enter an even number.","Correct!"]}

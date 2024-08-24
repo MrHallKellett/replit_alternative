@@ -1,0 +1,7 @@
+def five():
+    global x
+    x +=1
+
+x = 10
+five()
+print(x)
