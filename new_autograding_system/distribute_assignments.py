@@ -109,7 +109,7 @@ def redistribute_file(ass_path: str, stu_path: str, fn: str):
             check = bool(input(f"Replace .py file {old_file} - are you sure? "))
             if check:
                 create_backup(old_file)
-        if (path.getmtime(new_file) > path.getmtime(old_file):                        
+        if path.getmtime(new_file) > path.getmtime(old_file):                        
             create_backup(old_file)         
 
     if check:        

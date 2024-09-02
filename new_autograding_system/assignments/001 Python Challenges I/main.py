@@ -34,21 +34,20 @@ def name_repeater():
 
 
 
-if __name__ == "__main__":
-	# this instructs the program to execute each
-	# of the subroutines, one after the other.
-	# if you don't want them ALL to run, add a #
-	# at the start of the line to comment it out.
-	# however, to pass the autograding tests,
-	# you will need them to execute in this order:
-	
-	hello_world()
-	hello_newline_world()
-	name = meet_and_greet() # *
-	name_length(name) # **
-	number_adder()
-	in_x_years_time()
-	name_repeater()
+# this instructs the program to execute each
+# of the subroutines, one after the other.
+# if you don't want them ALL to run, add a #
+# at the start of the line to comment it out.
+# however, to pass the autograding tests,
+# you will need them to execute in this order:
+
+hello_world()
+hello_newline_world()
+name = meet_and_greet() # *
+name_length(name) # **
+number_adder()
+in_x_years_time()
+name_repeater()
 
 
 # * meet_and_greet() is a special type of subroutine called a FUNCTION. we will study these in more detail soon!
