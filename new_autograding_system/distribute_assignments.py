@@ -51,6 +51,7 @@ def get_assignments() -> list[str]:
     for choice in chosen:
         print(options[int(choice)])
     # return paths
+    
     return [path.join(ASS_PATH, options[i]) for i in chosen]
 
 
@@ -59,9 +60,11 @@ def get_assignments() -> list[str]:
 
 def explore_assignment_directory(ass_path: str, stu_path: str):
 
+    print("Exploring", ass_path)
+
     for fn in listdir(ass_path):
-        if fn in IGNORE or not path.isdir(fn):    continue
-        
+        if fn in IGNORE: continue
+        print("Exploring", fn)
         potential_path = path.join(ass_path, fn)
         #print("Check potential path", potential_path)
         if path.isdir(potential_path):
@@ -113,7 +116,8 @@ def redistribute_file(ass_path: str, stu_path: str, fn: str):
             create_backup(old_file)         
 
     if check:        
-        #print("Copied the file.")
+        print("Copied the file.")
+        print(new_file, old_file)
         copy(new_file, old_file)
         
 
@@ -151,6 +155,7 @@ if __name__ == "__main__":
 
     ass_paths = get_assignments()
     print(ass_paths)
+    input()
     students = get_students()
     print(students)
     input()
