@@ -23,14 +23,15 @@ def grid():
 
 
 
-if __name__ == "__main__":
-	# this instructs the program to execute each
-	# of the subroutines, one after the other.
-	# if you don't want them ALL to run, add a #
-	# at the start of the line to comment it out.
-	# to complete the built in Input/Output Tests
-	# you will need them to execute in this order:
-	
-	leet_speak()
-	banner()
-	grid()
+
+
+### leave this code here
+
+
+x = input("""Enter 1 to test L33T SP34K
+Enter 2 to test BANNER
+Enter 3 to test GRID""")
+try:
+        [leet_speak, banner, grid][int(x-1)]()
+except:
+        pass

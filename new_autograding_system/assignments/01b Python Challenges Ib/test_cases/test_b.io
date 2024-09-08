@@ -1,2 +1,0 @@
-{"inputs":["ok how are you?","Pink Panther","2"],
-"outputs":["Say something:","0|&lt; |-|0w 4r3 y0u???","Who are you?","------------================------------","----------/ / PINK PANTHER \ \----------","------------================------------","What size grid?","*-*"]}
