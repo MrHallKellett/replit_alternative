@@ -38,11 +38,11 @@ Can you create a program that translates the user’s input into 1337sp34k?
 	
 	Who are you? Kanye West
 	----------==============----------
-	--------/ / KANYE WEST \ \--------
+	--------( ( KANYE WEST ) )--------
 	----------==============----------
 	Who are you? Ted
 	---=======---
-	-/ / TED \ \-
+	-( ( TED ) )-
 	---=======---
 	
 p.s. `.upper()` can be used to convert a string into uppercase.
@@ -54,6 +54,7 @@ p.s. `.upper()` can be used to convert a string into uppercase.
 3\. Create a program that  will print a grid to the screen. Try to make your code as efficient/short as possible - remember the `*` operator and the syntax for new line: `\n`. The grid must resize according to the examples shown below:
 	
 	What size grid?
+        8
 	*-*-*-*-*-*-*-*
 	| | | | | | | |
 	*-*-*-*-*-*-*-*
@@ -62,6 +63,7 @@ p.s. `.upper()` can be used to convert a string into uppercase.
 	| | | | | | | |
 	*-*-*-*-*-*-*-*
 	What size grid?
+        4
 	*-*-*-*
 	| | | |
 	*-*-*-*
