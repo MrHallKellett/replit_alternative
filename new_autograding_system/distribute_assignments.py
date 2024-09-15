@@ -104,18 +104,24 @@ def redistribute_file(ass_path: str, stu_path: str, fn: str):
     new_file = path.join(ass_path, fn)
 
     check = True
-
-    if path.exists(old_file):
-        if not OVERWRITE_PY:
-            check = False
-        elif old_file.endswith(".py"):
+    backup = False
+    if path.exists(old_file):   
+        if OVERWRITE_PY and old_file.endswith(".py"):
             check = bool(input(f"Replace .py file {old_file} - are you sure? "))
             if check:
-                create_backup(old_file)
-        if path.getmtime(new_file) > path.getmtime(old_file):                        
-            create_backup(old_file)         
+                backup = True
+            
+            
+        elif path.getmtime(new_file) > path.getmtime(old_file):
+            backup = True
+        else:
+            check = False
 
-    if check:        
+            
+
+    if check:
+        if backup:
+            create_backup(old_file)
         print("Copied the file.")
         print(new_file, old_file)
         copy(new_file, old_file)
@@ -133,6 +139,9 @@ def distribute(ass_paths: list[str], students: dict):
             for assignment_path in ass_paths:
                 
                 ass_found = False
+                
+                if not any(class_group.startswith(year) for year in YEAR_GROUPS):
+                    continue
                 
                 suffix = f" - {student_name} [{class_group}]"
                 new_ass_path = path.join(*path.split(assignment_path)[1:]) + suffix
