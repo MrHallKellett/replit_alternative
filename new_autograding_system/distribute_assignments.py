@@ -6,7 +6,7 @@ from shutil import copy
 from config import *
 from os import listdir
 
-OVERWRITE_PY = False
+OVERWRITE_PY = True
 
 
 

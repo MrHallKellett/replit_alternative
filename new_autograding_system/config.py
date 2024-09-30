@@ -7,5 +7,5 @@ solutions
 tests.py""".splitlines()
 BACK_UP = True
 DB_FILENAME = "test_results.db"
-YEAR_GROUPS = ["10"]
-CLASS_WANTED = "10CmB"
+YEAR_GROUPS = ["0"]
+CLASS_WANTED = "0TEST"

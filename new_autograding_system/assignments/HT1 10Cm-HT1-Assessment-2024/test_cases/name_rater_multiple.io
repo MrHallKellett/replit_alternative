@@ -1,0 +1,2 @@
+{"inputs":["4","JIM"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Enter your name:","Found 'I'! +5 points","3 is a multiple of 3! +10 points","Total: 15 points"]}

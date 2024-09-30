@@ -1,0 +1,2 @@
+{"inputs":["3","cat","dog","3","3"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Player 1, enter your string.","Player 2, enter your string.","Player 1, enter your integer.","Player 2, enter your integer.","Competition begins!","Player 1: catcatcat","Player 2: dogdogdog","It was a draw!"]}

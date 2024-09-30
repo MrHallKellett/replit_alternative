@@ -1,0 +1,2 @@
+{"inputs":["2","rice","2"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","What do you want to order?","rice, coming right up!","What's your employee number?","That'll be 2 + 4 = 6 HKD please!"]}

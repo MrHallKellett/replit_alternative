@@ -1,0 +1,2 @@
+{"inputs":["4","QUAEIOYIBBBQ"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Enter your name:","Begins with 'Q'! +100 points","Found 'A'! +5 points","Found 'E'! +5 points","Found 'I'! +5 points","Found 'O'! +5 points","Found 'U'! +5 points","12 is a multiple of 3! +10 points","First letter is same as last letter! +10 points","Total: 145 points"]}

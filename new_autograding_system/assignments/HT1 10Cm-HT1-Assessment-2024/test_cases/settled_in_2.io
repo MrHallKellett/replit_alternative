@@ -1,0 +1,2 @@
+{"inputs":["1","I LOVE COMPUTER SCIENCE!!!!!"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Hi, have you settled in?","I LOVE COMPUTER SCIENCE!!!!!? Great to hear you have settled in."]}

@@ -1,0 +1,1 @@
+{"inputs": "", "outputs": "🙈 Chimp\n🦔 Hedgehog\n🦔 Hedgehog\n🦔 Hedgehog\n🐮 Cow\n🦔 Hedgehog\n🦔 Hedgehog\n🦔 Hedgehog\n🐮 Cow\n🦔 Hedgehog\n🦔 Hedgehog\n🦔 Hedgehog\n🐮 Cow\n🦍 Gorilla"}

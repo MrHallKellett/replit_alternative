@@ -1,0 +1,1 @@
+{"inputs": "", "outputs": "🍜 Noodles\n🍜 Noodles\n🍜 Noodles\n🍜 Noodles\n🍜 Noodles\n🍜 Noodles\n🍜 Noodles\n🍚 Rice"}

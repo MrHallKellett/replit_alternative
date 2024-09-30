@@ -1,25 +1,25 @@
 def task_1():
 
-  print("What did you eat for lunch? ")
-  food = input()
-  print("Yum! I love eating", food)
+  print("What did you eat for lunch? ") 
+  food = input[] 
+  print("Yum! I love eating", food) 
 
 #########################################################
 
 def task_2():
   
-  name = input("What's your name? ")
-  print("Hello", name)
+  name = input("What's your name? ") 
+  print("Hello" name)
   
 #########################################################
 
 def task_3():  
   
-  print("Enter a name for the number 0208345242:")
-  l0208345242 = input()
-  print("Enter the date you last called 0208345242: ")
-  lastcalled = input()
-  print("So you called", gfd0208345242, "on", lastdfgdfgdfcalled, "?")
+  print("Enter a name for the number 0208345242:") 
+  0208345242 = input() 
+  print("Enter the date you last called 0208345242: ") 
+  last called = input() 
+  print("So you called", 0208345242, "on", last called, "?") 
  
 #########################################################
  
@@ -37,9 +37,9 @@ def task_4():
       
 def task_5():
     
-  print("So, where do you live? ")
-
-  print("WOW! I'd love to live in {}!".format(city))
+  print("So, where do you live? ") 
+  input() = city 
+  print("WOW! I'd love to live in {}!".format(city)) 
 
 #########################################################
 
@@ -178,9 +178,9 @@ def menu():
   function for the requested exercise"""
 
   choice = input("Enter task number e.g. 1, 2, 3 etc: ")
-  try:
+  if choice in "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16".split(","):
     eval("task_{}()".format(choice))
-  except NameError:
+  else:
     print("I didn't understand '{}'".format(choice))
 
 

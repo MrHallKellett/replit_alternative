@@ -1,0 +1,1 @@
+{"inputs": "", "outputs": "🐧 Penguin\n🐔 Chicken\n🐔 Chicken\n🐔 Chicken\n🦉 Owl\n🐧 Penguin\n🐔 Chicken\n🐔 Chicken\n🐔 Chicken\n🦉 Owl"}

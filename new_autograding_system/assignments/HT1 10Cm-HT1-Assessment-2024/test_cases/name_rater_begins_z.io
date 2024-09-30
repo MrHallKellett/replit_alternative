@@ -1,0 +1,2 @@
+{"inputs":["4","ZY"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Enter your name:","Begins with 'Z'! +100 points","Total: 100 points"]}

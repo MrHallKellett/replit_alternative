@@ -1,0 +1,2 @@
+{"inputs":["4","O'SULLIVAN"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","Enter your name:","Found 'A'! +5 points","Found 'I'! +5 points","Found 'O'! +5 points","Found 'U'! +5 points","Total: 20 points"]}

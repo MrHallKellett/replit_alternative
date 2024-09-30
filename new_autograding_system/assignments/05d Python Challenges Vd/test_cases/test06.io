@@ -1,0 +1,1 @@
+{"inputs": "", "outputs": "🦒 Giraffe\n🐒 Monkey\n🐒 Monkey\n🐒 Monkey"}

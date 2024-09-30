@@ -1,0 +1,2 @@
+{"inputs":["2","noodles rice omelette pasta","1999"],
+"outputs":["Enter 1 to test SETTLED IN","Enter 2 to test ORDER BOT","Enter 3 to test STRING GAME","Enter 4 to test NAME RATER","What do you want to order?","noodles rice omelette pasta, coming right up!","What's your employee number?","That'll be 1999 + 27 = 2026 HKD please!"]}

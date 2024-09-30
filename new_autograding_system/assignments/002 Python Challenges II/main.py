@@ -36,21 +36,20 @@ def username_validator():
 
 # leave this block of code as it is!
 
-if __name__ == "__main__":
 
 
-	print('''Enter 1 to test OLD ENOUGH TO DRIVE
+print('''Enter 1 to test OLD ENOUGH TO DRIVE
 Enter 2 to test GRADE CALCULATOR
 Enter 3 to test LEAP YEAR
 Enter 4 to test FINANCIAL ADVISER
 Enter 5 to test NAME LENGTH COMPARISON
 Enter 6 to test USERNAME VALIDATOR''')
 
-	x = input()
-	if x in "123456":
-		[old_enough_to_drive,
-		grade_calculator,
-		leap_year,
-		financial_adviser,
-		name_length_comparison,
-		username_validator][int(x)-1]()
+x = input()
+if x in "123456":
+        [old_enough_to_drive,
+        grade_calculator,
+        leap_year,
+        financial_adviser,
+        name_length_comparison,
+        username_validator][int(x)-1]()
